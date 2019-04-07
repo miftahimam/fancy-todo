@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google-signin-client_id" content="863501262850-tbu5lsf31pebnmclapca65u0smkim8bu.apps.googleusercontent.com">
+   
+    <title>Todo App</title>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <link rel="stylesheet" type="text/css" href="tampilan.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body class="bg-landing">
+
+        <div id="user"></div>
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        </div>
+          <h1 id="heading">Fancy Todo App</h1>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="/action_page.php" onsubmit="createUser()">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required id="formUser"> 
+
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="email" required id="formEmail">
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Password" name="psw" required id="formPassword">
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required id="formPassword">
+      
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<button onclick="document.getElementById('loginButton').style.display='block'" style="width:auto;">Login</button>
+
+<div id="loginButton" class="modal">
+<div class="kotak_login">
+  <p class="tulisan_login">Silahkan login</p>
+
+  <form onsubmit="login()">
+    <label>Username</label>
+    <input type="text" name="username" class="form_login" placeholder="Username atau email ..">
+
+    <label>Password</label>
+    <input type="password" name="password" class="form_login" placeholder="Password ..">
+
+    <input type="submit" name="login" class="tombol_login" value="login" id="login">
+    <button type="button" onclick="document.getElementById('loginButton').style.display='none'" class="cancelbtn">Cancel</button>
+    <br/>
+    <br/>
+  </form>
+  </div>
+</div>
+
+<div class="formTodo">
+  <form  method="post" onsubmit="createTodo()">
+    <input type="text" id="title" placeholder="Title" >
+    <input type="text" id="description" placeholder="Description">
+    <input type="date" id="due_date" placeholder="Date">
+      <button type="submit">submit</button>
+      <button type="button" onclick="deleteTask()">Delete</button>
+  </form>
+      <div id="updateForm"></div>
+        <ul id="todo-list"></ul>
+  </div>
+  <script>
+        var modal = document.getElementById('loginButton');
+        window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+  </script>
+    <script>
+     
+      var modal = document.getElementById('id01');
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      </script>
+    <script
+	  src="http://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="/js/index.js"></script>
+    <script>
+      var modal = document.getElementById('id01');
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+      </script>
+</body>
+</html>
